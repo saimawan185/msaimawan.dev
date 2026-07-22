@@ -6,6 +6,14 @@
 <title>Muhammad Saim — Full Stack Mobile App Developer</title>
 <meta name="description" content="Muhammad Saim — Full Stack Mobile App Developer specializing in Flutter, Android & iOS. From code to shipped apps.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%2302569B'/%3E%3Cpath fill='%23fff' d='M14.3 2.2 3.4 13.1l3.4 3.4L21.1 2.2h-6.8zM14.3 21.8h6.8l-7.6-7.6-3.4 3.4 4.2 4.2z'/%3E%3C/svg%3E">
+<script>
+  (function(){
+    try {
+      var t = localStorage.getItem('theme');
+      if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    } catch(e){}
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -25,6 +33,28 @@
     --shadow:0 20px 60px -20px rgba(0,0,0,0.6);
     --radius:18px;
   }
+
+  html[data-theme="light"]{
+    --bg:#f7f5f0;
+    --bg-soft:#efece3;
+    --panel:#ffffff;
+    --panel-2:#f5f2ea;
+    --line:rgba(15,17,25,0.10);
+    --text:#14161f;
+    --muted:#565a6c;
+    --muted-2:#7d8196;
+    --gold:#b8862a;
+    --gold-soft:#8f6a1c;
+    --teal:#0f8a82;
+    --shadow:0 20px 50px -20px rgba(20,22,31,0.18);
+  }
+
+  html[data-theme="light"] body::before{opacity:0.55;}
+  html[data-theme="light"] nav.scrolled{background:rgba(247,245,240,0.85);}
+  html[data-theme="light"] .code-body{color:#2b2f3d;}
+  html[data-theme="light"] .code-body .kw{color:#8a3fc4;}
+  html[data-theme="light"] .code-body .str{color:#1f8f4a;}
+  html[data-theme="light"] .btn-ghost{color:var(--text);}
 
   *{margin:0;padding:0;box-sizing:border-box;}
 
@@ -93,6 +123,7 @@
     padding:14px 0;
   }
   .nav-inner{display:flex; align-items:center; justify-content:space-between;}
+  .nav-right{display:flex; align-items:center; gap:24px;}
   .logo{
     font-family:'Fraunces',serif;
     font-weight:600;
@@ -120,6 +151,22 @@
   }
   .nav-cta:hover{background:var(--gold); color:#0a0c14 !important;}
   .nav-toggle{display:none;}
+
+  .theme-toggle{
+    width:38px; height:38px;
+    border-radius:50%;
+    border:1px solid var(--line);
+    background:var(--panel);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    transition:all .3s ease;
+    flex-shrink:0;
+  }
+  .theme-toggle:hover{border-color:var(--gold);}
+  .theme-toggle svg{width:17px; height:17px; stroke:var(--muted); fill:none;}
+  .theme-toggle .icon-moon{display:none;}
+  html[data-theme="light"] .theme-toggle .icon-sun{display:none;}
+  html[data-theme="light"] .theme-toggle .icon-moon{display:block;}
 
   :focus-visible{outline:2px solid var(--teal); outline-offset:3px; border-radius:4px;}
 
@@ -243,29 +290,10 @@
   .chip-3{bottom:-4%; left:10%; animation-delay:2.4s;}
   @keyframes float{0%,100%{transform:translateY(0);} 50%{transform:translateY(-9px);}}
 
-  /* ---------- CURSOR SPOTLIGHT ---------- */
-  .cursor-spotlight{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:2;
-    opacity:0;
-    transition:opacity .5s ease;
-    background:
-      radial-gradient(480px circle at var(--x,50%) var(--y,50%), rgba(212,175,55,0.13), transparent 45%),
-      radial-gradient(760px circle at var(--x,50%) var(--y,50%), rgba(63,208,201,0.06), transparent 60%);
-    mix-blend-mode:screen;
-  }
-  body.spotlight-on .cursor-spotlight{opacity:1;}
-
   /* tilt-enabled elements get a live transform + shadow set via JS on mousemove */
   .tilt{
     transition:transform .2s ease, box-shadow .2s ease;
     will-change:transform;
-  }
-
-  @media (max-width:980px){
-    .cursor-spotlight{display:none;}
   }
 
   /* ---------- SECTION SHELL ---------- */
@@ -379,6 +407,31 @@
   }
   .highlight-item h4{font-family:'Inter',sans-serif; font-size:16px; font-weight:600; margin-bottom:6px;}
   .highlight-item p{font-size:14px; color:var(--muted); margin:0; line-height:1.6;}
+
+  /* ---------- EDUCATION ---------- */
+  .edu-list{display:flex; flex-direction:column; gap:18px; max-width:760px;}
+  .edu-item{
+    display:grid; grid-template-columns:150px 1fr; gap:26px;
+    padding:26px 28px;
+    background:var(--panel); border:1px solid var(--line);
+    border-left:3px solid var(--gold);
+    border-radius:14px;
+    transition:transform .3s ease, border-left-color .3s ease;
+  }
+  .edu-item:hover{transform:translateX(4px); border-left-color:var(--teal);}
+  .edu-year{font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--teal); letter-spacing:0.03em; padding-top:2px;}
+  .edu-body h4{
+    font-size:18px; font-weight:600; font-family:'Inter',sans-serif;
+    margin-bottom:8px; display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  }
+  .edu-badge{
+    font-family:'JetBrains Mono',monospace; font-size:11px;
+    background:rgba(212,175,55,0.15); color:var(--gold-soft);
+    border:1px solid rgba(212,175,55,0.35);
+    padding:4px 10px; border-radius:100px; letter-spacing:0.02em;
+  }
+  .edu-inst{color:var(--muted); font-size:14.5px; margin-bottom:6px;}
+  .edu-score{color:var(--text); font-size:14px; font-weight:600;}
 
   /* ---------- STACK ---------- */
   .stack-groups{display:flex; flex-direction:column; gap:40px;}
@@ -541,22 +594,28 @@
     .btn-row{flex-direction:column; align-items:stretch;}
     .btn{justify-content:center;}
     footer{flex-direction:column; gap:10px; text-align:center;}
+    .edu-item{grid-template-columns:1fr; gap:8px;}
   }
 </style>
 </head>
 <body>
 
-<div class="cursor-spotlight" aria-hidden="true"></div>
-
 <nav id="nav">
   <div class="wrap nav-inner">
     <a href="#top" class="logo">M<span>.</span>Saim</a>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#stack">Stack</a>
-      <a href="#apps">Apps</a>
-      <a href="#building">Building</a>
-      <a href="#contact" class="nav-cta">Hire Me</a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#stack">Stack</a>
+        <a href="#apps">Apps</a>
+        <a href="#building">Building</a>
+        <a href="#contact" class="nav-cta">Hire Me</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle light and dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8l1.8-1.8M18 6l1.8-1.8"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>
+      </button>
     </div>
   </div>
 </nav>
@@ -566,7 +625,7 @@
     <div class="hero-copy">
       <div class="eyebrow">Full Stack Mobile App Developer</div>
       <h1>Muhammad Saim —<br>I build apps that feel <em>native</em>,<br>ship <em>fast</em>, and scale.</h1>
-      <p class="lede">Flutter specialist crafting <b>Android &amp; iOS</b> apps end‑to‑end — from architecture to App Store — for founders, agencies, and my own products. <b>10+ apps shipped</b>, zero shortcuts.</p>
+      <p class="lede">Flutter specialist crafting <b>Android &amp; iOS</b> apps end‑to‑end — from architecture to App Store — for founders, agencies, and my own products. <b>25+ apps shipped</b>, zero shortcuts.</p>
       <div class="btn-row">
         <a href="#apps" class="btn btn-primary">
           View shipped apps
@@ -575,7 +634,7 @@
       </div>
       <div class="stat-row">
         <div class="stat"><b>3+</b><span>Years experience</span></div>
-        <div class="stat"><b>10+</b><span>Apps published</span></div>
+        <div class="stat"><b>15+</b><span>Apps published</span></div>
         <div class="stat"><b>2</b><span>Platforms — iOS &amp; Android</span></div>
         <div class="stat"><b>Remote</b><span>Open worldwide</span></div>
       </div>
@@ -646,21 +705,57 @@
       <p>Currently open for remote roles, freelance builds, and long‑term collaborations.</p>
     </div>
     <div class="highlight-list reveal">
-      <div class="highlight-item tilt">
+      <div class="highlight-item">
         <div class="num">01</div>
         <div><h4>Android &amp; iOS, one codebase</h4><p>Flutter apps engineered to feel platform‑native, not templated — from navigation patterns to performance.</p></div>
       </div>
-      <div class="highlight-item tilt">
+      <div class="highlight-item">
         <div class="num">02</div>
         <div><h4>Client work &amp; own products</h4><p>Shipped apps for founders and agencies alongside self‑owned products like Noor Islamic App and QuickChat.</p></div>
       </div>
-      <div class="highlight-item tilt">
+      <div class="highlight-item">
         <div class="num">03</div>
         <div><h4>Store‑ready, not just demo‑ready</h4><p>Experience with App Store &amp; Play Store submission, monetization (AdMob), and post‑launch iteration.</p></div>
       </div>
-      <div class="highlight-item tilt">
+      <div class="highlight-item">
         <div class="num">04</div>
         <div><h4>Remote‑native collaborator</h4><p>Comfortable owning a feature or a whole product, working async with teams anywhere.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education" style="background:var(--bg-soft); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Education</div>
+      <h2>Academic background.</h2>
+      <p>The formal path that led into software engineering.</p>
+    </div>
+    <div class="edu-list reveal">
+      <div class="edu-item">
+        <div class="edu-year">2019 – 2023</div>
+        <div class="edu-body">
+          <h4>BS Computer Science <span class="edu-badge">🏅 Gold Medalist</span></h4>
+          <div class="edu-inst">University of South Asia, Lahore</div>
+          <div class="edu-score">CGPA 3.83 / 4.0</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2017 – 2019</div>
+        <div class="edu-body">
+          <h4>F.Sc Pre-Engineering</h4>
+          <div class="edu-inst">Punjab College, Lahore</div>
+          <div class="edu-score">73.82%</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2015 – 2017</div>
+        <div class="edu-body">
+          <h4>Matriculation in Computer Science</h4>
+          <div class="edu-inst">M.A Model High School</div>
+          <div class="edu-score">82.27%</div>
+        </div>
       </div>
     </div>
   </div>
@@ -717,7 +812,7 @@
     </div>
 
     <div class="app-grid reveal" data-panel="own">
-      <div class="app-card tilt">
+      <div class="app-card">
         <div class="app-icon">🕐</div>
         <h4>Age Calculator</h4>
         <div class="cat">Utility · Birthday Tracker</div>
@@ -725,7 +820,7 @@
           <a href="https://play.google.com/store/apps/details?id=com.tetratech.agecalculator.birthdaytracker" target="_blank" rel="noopener noreferrer">Play Store ↗</a>
         </div>
       </div>
-      <div class="app-card tilt">
+      <div class="app-card">
         <div class="app-icon">☪️</div>
         <h4>Noor Islamic App</h4>
         <div class="cat">Lifestyle · Islamic Companion</div>
@@ -733,7 +828,7 @@
           <a href="https://play.google.com/store/apps/details?id=com.noorislamic.app" target="_blank" rel="noopener noreferrer">Play Store ↗</a>
         </div>
       </div>
-      <div class="app-card tilt">
+      <div class="app-card">
         <div class="app-icon">💬</div>
         <h4>QuickChat</h4>
         <div class="cat">Utility · WhatsApp Companion</div>
@@ -745,7 +840,7 @@
     </div>
 
     <div class="app-grid reveal" data-panel="client" style="display:none;">
-      <div class="app-card tilt">
+      <div class="app-card">
         <div class="app-icon">🌲</div>
         <h4>WildVision</h4>
         <div class="cat">Camera &amp; AI</div>
@@ -754,7 +849,7 @@
           <a href="https://apps.apple.com/us/app/wildvision/id6751607406" target="_blank" rel="noopener noreferrer">App Store ↗</a>
         </div>
       </div>
-      <div class="app-card tilt">
+      <div class="app-card">
         <div class="app-icon">☪️</div>
         <h4>Falah Islamic App</h4>
         <div class="cat">Lifestyle</div>
@@ -763,7 +858,7 @@
           <a href="https://apps.apple.com/us/app/falah-app/id6479693756" target="_blank" rel="noopener noreferrer">App Store ↗</a>
         </div>
       </div>
-      <div class="app-card tilt">
+      <div class="app-card">
         <div class="app-icon">💍</div>
         <h4>OnlyNikkah</h4>
         <div class="cat">Social · Matrimony</div>
@@ -772,7 +867,7 @@
           <a href="https://apps.apple.com/us/app/onlynikkah-halal-dating-app/id6479748054" target="_blank" rel="noopener noreferrer">App Store ↗</a>
         </div>
       </div>
-      <div class="app-card tilt">
+      <div class="app-card">
         <div class="app-icon">🍔</div>
         <h4>DoorDelights</h4>
         <div class="cat">Food Delivery</div>
@@ -781,7 +876,25 @@
           <a href="https://apps.apple.com/us/app/doordelights/id6737221336" target="_blank" rel="noopener noreferrer">App Store ↗</a>
         </div>
       </div>
-      <div class="app-card tilt">
+      <div class="app-card">
+        <div class="app-icon">🚗</div>
+        <h4>Smooth Drop</h4>
+        <div class="cat">Ride-Hailing</div>
+        <div class="app-links">
+          <a href="https://play.google.com/store/apps/details?id=com.smooth.drop" target="_blank" rel="noopener noreferrer">Play Store ↗</a>
+          <a href="https://apps.apple.com/us/app/smoothdrop-request-a-ride/id6754243436" target="_blank" rel="noopener noreferrer">App Store ↗</a>
+        </div>
+      </div>
+      <div class="app-card">
+        <div class="app-icon">🎥</div>
+        <h4>SyfPlus</h4>
+        <div class="cat">Social Media</div>
+        <div class="app-links">
+          <a href="https://play.google.com/store/apps/details?id=com.sauti.faraja" target="_blank" rel="noopener noreferrer">Play Store ↗</a>
+          <a href="https://apps.apple.com/us/app/syf-plus/id6770406459" target="_blank" rel="noopener noreferrer">App Store ↗</a>
+        </div>
+      </div>
+      <div class="app-card">
         <div class="app-icon">🎸</div>
         <h4>Shimobe Music</h4>
         <div class="cat">Music &amp; Learning</div>
@@ -790,7 +903,7 @@
           <a href="https://apps.apple.com/us/app/shimobe-guitar/id6748067906" target="_blank" rel="noopener noreferrer">App Store ↗</a>
         </div>
       </div>
-      <div class="app-card tilt">
+      <div class="app-card">
         <div class="app-icon">🩺</div>
         <h4>SegaHealth</h4>
         <div class="cat">Health &amp; Fitness</div>
@@ -799,7 +912,7 @@
           <a href="https://apps.apple.com/us/app/segahealth/id6751970064" target="_blank" rel="noopener noreferrer">App Store ↗</a>
         </div>
       </div>
-      <div class="app-card tilt">
+      <div class="app-card">
         <div class="app-icon">✨</div>
         <h4>Quotes &amp; Motivations</h4>
         <div class="cat">Lifestyle</div>
@@ -820,25 +933,15 @@
       <p>What's on my desk right now.</p>
     </div>
     <div class="build-grid reveal">
-      <div class="build-card tilt">
+      <div class="build-card">
         <div class="status">In development</div>
         <h4>🧾 ShopLedger</h4>
         <p>A simple invoicing &amp; customer management app for small businesses.</p>
       </div>
-      <div class="build-card tilt">
+      <div class="build-card">
         <div class="status">In development</div>
-        <h4>🎥 SyfPlus</h4>
-        <p>A TikTok/Instagram‑style social app with reels, posts &amp; live streaming.</p>
-      </div>
-      <div class="build-card tilt">
-        <div class="status">In development</div>
-        <h4>🚗 Smooth Drop</h4>
-        <p>An Uber‑like ride‑hailing app for smooth, on‑demand travel.</p>
-      </div>
-      <div class="build-card tilt">
-        <div class="status">In development</div>
-        <h4>🍔 DoorDelights</h4>
-        <p>A DoorDash/Foodpanda‑style food delivery app connecting stores &amp; customers.</p>
+        <h4>🗣️ Language Tutor App</h4>
+        <p>An AI-assisted app for learning new languages through interactive lessons and practice.</p>
       </div>
     </div>
   </div>
@@ -873,19 +976,24 @@
 </footer>
 
 <script>
-  // cursor spotlight — brightness follows the mouse
+  // light / dark theme toggle
+  const html = document.documentElement;
+  const themeToggle = document.getElementById('themeToggle');
+  themeToggle.addEventListener('click', () => {
+    const isLight = html.getAttribute('data-theme') === 'light';
+    if (isLight) {
+      html.removeAttribute('data-theme');
+    } else {
+      html.setAttribute('data-theme', 'light');
+    }
+    try { localStorage.setItem('theme', isLight ? 'dark' : 'light'); } catch(e){}
+  });
+
+  // dynamic tilt + moving shadow on cards, driven by cursor position
   const finePointer = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const spotlight = document.querySelector('.cursor-spotlight');
 
   if (finePointer && !reducedMotion) {
-    document.body.classList.add('spotlight-on');
-    window.addEventListener('mousemove', (e) => {
-      spotlight.style.setProperty('--x', e.clientX + 'px');
-      spotlight.style.setProperty('--y', e.clientY + 'px');
-    });
-
-    // dynamic tilt + moving shadow on cards, driven by cursor position
     document.querySelectorAll('.tilt').forEach(card => {
       const maxTilt = 7;
       const maxShadow = 26;
