@@ -812,11 +812,11 @@
     </div>
 
     <div class="tabs reveal">
-      <button class="tab-btn active" data-tab="own">Own Products</button>
-      <button class="tab-btn" data-tab="client">Client Apps</button>
+      <button class="tab-btn active" data-tab="client">Client Apps</button>
+      <button class="tab-btn" data-tab="own">Own Products</button>
     </div>
 
-    <div class="app-grid reveal" data-panel="own">
+    <div class="app-grid reveal" data-panel="own" style="display:none;">
       <div class="app-card">
         <div class="app-icon">🕐</div>
         <h4>Age Calculator</h4>
@@ -844,7 +844,7 @@
       <div class="more-badge">+ more on my <a href="https://play.google.com/store/apps/dev?id=5554135620119363704" target="_blank" rel="noopener noreferrer" style="color:var(--gold-soft);">Play Console profile ↗</a></div>
     </div>
 
-    <div class="app-grid reveal" data-panel="client" style="display:none;">
+    <div class="app-grid reveal" data-panel="client">
       <div class="app-card">
         <div class="app-icon">🌲</div>
         <h4>WildVision</h4>
@@ -918,13 +918,13 @@
         </div>
       </div>
       <div class="app-card">
-  <div class="app-icon">🛒</div>
-  <h4>Kalam Dawat</h4>
-  <div class="cat">Local E-Commerce App</div>
-  <div class="app-links">
-    <a href="https://play.google.com/store/apps/details?id=com.kalamdawat.kalam_dawaat" target="_blank" rel="noopener noreferrer">Play Store ↗</a>
-  </div>
-</div>
+        <div class="app-icon">🛒</div>
+        <h4>Kalam Dawat</h4>
+        <div class="cat">Local E-Commerce App</div>
+        <div class="app-links">
+          <a href="https://play.google.com/store/apps/details?id=com.kalamdawat.kalam_dawaat" target="_blank" rel="noopener noreferrer">Play Store ↗</a>
+        </div>
+      </div>
       <div class="app-card">
         <div class="app-icon">✨</div>
         <h4>Quotes &amp; Motivations</h4>
@@ -1057,6 +1057,7 @@
       const target = btn.dataset.tab;
       panels.forEach(p => {
         p.style.display = (p.dataset.panel === target) ? 'grid' : 'none';
+        if (p.dataset.panel === target) p.classList.add('in');
       });
     });
   });
