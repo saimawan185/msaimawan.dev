@@ -1,0 +1,58 @@
+# Muhammad Saim — Portfolio
+# https://msaimawan.freedev.app/
+
+User-agent: *
+Allow: /
+
+# ---- AI / LLM crawlers — explicitly allowed ----
+# OpenAI
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google AI (Bard / Gemini training)
+User-agent: Google-Extended
+Allow: /
+
+# Common Crawl (used to train many LLMs)
+User-agent: CCBot
+Allow: /
+
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+# ByteDance / TikTok
+User-agent: Bytespider
+Allow: /
+
+# Amazon
+User-agent: Amazonbot
+Allow: /
+
+Sitemap: https://msaimawan.freedev.app/sitemap.xml
