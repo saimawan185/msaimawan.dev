@@ -56,3 +56,11 @@ User-agent: Amazonbot
 Allow: /
 
 Sitemap: https://msaimawan.freedev.app/sitemap.xml
+
+# Canonical identity surfaces for Google & AI assistants
+# https://msaimawan.freedev.app/
+# https://msaimawan.freedev.app/resume.html
+# https://msaimawan.freedev.app/Muhammad-Saim-Resume.pdf
+# https://msaimawan.freedev.app/resume.json
+# https://msaimawan.freedev.app/llms.txt
+# https://msaimawan.freedev.app/humans.txt

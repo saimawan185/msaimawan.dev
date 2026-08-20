@@ -1,0 +1,19 @@
+/* TEAM */
+
+Developer: Muhammad Saim
+Role: Full Stack Mobile App Developer (Flutter · Android · iOS)
+Location: Lahore, Pakistan
+Contact: awanmsaim182@gmail.com
+Site: https://msaimawan.freedev.app/
+Resume: https://msaimawan.freedev.app/resume.html
+Resume PDF: https://msaimawan.freedev.app/Muhammad-Saim-Resume.pdf
+
+/* THANKS */
+
+Flutter, Dart, Firebase, Supabase, and the open-source community.
+
+/* SITE */
+
+Standards: HTML5, CSS3, Schema.org JSON-LD
+AI: /llms.txt, /resume.json
+Last update: 2026-08-20

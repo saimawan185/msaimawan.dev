@@ -1,0 +1,245 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Muhammad Saim",
+    "label": "Full Stack Mobile App Developer \u00b7 Flutter \u00b7 Android \u00b7 iOS",
+    "image": "https://msaimawan.freedev.app/og-image.jpg",
+    "email": "awanmsaim182@gmail.com",
+    "phone": "+923164168178",
+    "url": "https://msaimawan.freedev.app/",
+    "summary": "Senior Mobile App Developer with 3+ years of professional experience shipping production Android and iOS apps with Flutter. 25+ published apps across client products and self-owned apps. Currently Senior Mobile App Developer at Scarmatrix, Lahore. Open to remote roles, freelance work, and long-term collaborations.",
+    "location": {
+      "city": "Lahore",
+      "countryCode": "PK",
+      "region": "Punjab"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "saimawan185",
+        "url": "https://github.com/saimawan185"
+      },
+      {
+        "network": "LinkedIn",
+        "url": "https://www.linkedin.com/in/muhammad-saim-5bab731bb/"
+      },
+      {
+        "network": "Portfolio",
+        "url": "https://msaimawan.freedev.app/"
+      },
+      {
+        "network": "Resume PDF",
+        "url": "https://msaimawan.freedev.app/Muhammad-Saim-Resume.pdf"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Scarmatrix",
+      "position": "Senior Mobile App Developer",
+      "url": "https://msaimawan.freedev.app/",
+      "startDate": "2025-03",
+      "location": "Lahore, Pakistan",
+      "summary": "Lead Flutter development for production Android & iOS client apps end-to-end.",
+      "highlights": [
+        "Own features from architecture and UI through store submission and iteration",
+        "Collaborate with clients on product scope, quality, and release readiness"
+      ]
+    },
+    {
+      "name": "BlueHorn Tech",
+      "position": "Flutter Developer",
+      "startDate": "2023-09",
+      "endDate": "2025-02",
+      "location": "Lahore, Pakistan",
+      "highlights": [
+        "Built and maintained cross-platform Flutter apps for Android and iOS",
+        "Integrated Firebase services, APIs, and store distribution workflows",
+        "Shipped client apps across social, lifestyle, commerce, and utility categories"
+      ]
+    },
+    {
+      "name": "Jotun Techs",
+      "position": "Flutter Developer",
+      "startDate": "2022-01",
+      "endDate": "2023-02",
+      "location": "Lahore, Pakistan",
+      "highlights": [
+        "Developed Flutter mobile applications with clean UI and reliable releases",
+        "Contributed to Android/iOS delivery pipelines and production bug fixes"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of South Asia, Lahore",
+      "area": "Computer Science",
+      "studyType": "Bachelor of Science",
+      "startDate": "2019",
+      "endDate": "2023",
+      "score": "CGPA 3.83 / 4.0",
+      "courses": [
+        "Gold Medalist"
+      ]
+    },
+    {
+      "institution": "Punjab College, Lahore",
+      "area": "Pre-Engineering",
+      "studyType": "F.Sc",
+      "startDate": "2017",
+      "endDate": "2019",
+      "score": "73.82%"
+    },
+    {
+      "institution": "M.A Model High School",
+      "area": "Computer Science",
+      "studyType": "Matriculation",
+      "startDate": "2015",
+      "endDate": "2017",
+      "score": "82.27%"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Mobile Development",
+      "level": "Expert",
+      "keywords": [
+        "Flutter",
+        "Dart",
+        "Android",
+        "iOS",
+        "Kotlin",
+        "Java"
+      ]
+    },
+    {
+      "name": "Backend & Services",
+      "keywords": [
+        "Firebase",
+        "Supabase",
+        "REST APIs",
+        "Git"
+      ]
+    },
+    {
+      "name": "Tools",
+      "keywords": [
+        "Android Studio",
+        "VS Code",
+        "Cursor",
+        "FlutterFlow",
+        "Google AI Studio"
+      ]
+    },
+    {
+      "name": "Delivery",
+      "keywords": [
+        "App Store",
+        "Play Store",
+        "AdMob",
+        "Release management"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "TrustPin",
+      "description": "Safety app for family and friends \u2014 share live locations with each other anytime (in development)",
+      "keywords": [
+        "Flutter",
+        "Safety",
+        "Live Location",
+        "In Development"
+      ]
+    },
+    {
+      "name": "TruMeets",
+      "description": "Safe meetings and live location sharing",
+      "url": "https://apps.apple.com/us/app/trumeets/id6754884520",
+      "keywords": [
+        "iOS",
+        "Safety",
+        "Live Location"
+      ]
+    },
+    {
+      "name": "WildVision",
+      "description": "Hunting companion app for New Zealand",
+      "keywords": [
+        "iOS",
+        "Android",
+        "Flutter"
+      ]
+    },
+    {
+      "name": "Falah Islamic App",
+      "description": "Islamic lifestyle app",
+      "keywords": [
+        "iOS",
+        "Android"
+      ]
+    },
+    {
+      "name": "OnlyNikkah",
+      "description": "Social / matrimony platform",
+      "keywords": [
+        "iOS",
+        "Android"
+      ]
+    },
+    {
+      "name": "DoorDelights",
+      "description": "Food delivery app",
+      "keywords": [
+        "iOS",
+        "Android"
+      ]
+    },
+    {
+      "name": "Smooth Drop",
+      "description": "Ride-hailing app",
+      "keywords": [
+        "iOS",
+        "Android"
+      ]
+    },
+    {
+      "name": "SyfPlus",
+      "description": "Social media with reels, posts & live streaming",
+      "keywords": [
+        "iOS",
+        "Android"
+      ]
+    },
+    {
+      "name": "Shimobe Guitar",
+      "description": "Music & guitar learning app",
+      "keywords": [
+        "iOS",
+        "Android"
+      ]
+    },
+    {
+      "name": "Shimobe MyClass",
+      "description": "Class, student & teacher management",
+      "keywords": [
+        "iOS",
+        "Android"
+      ]
+    },
+    {
+      "name": "SegaHealth",
+      "description": "Health & fitness tracking",
+      "keywords": [
+        "iOS",
+        "Android"
+      ]
+    }
+  ],
+  "meta": {
+    "canonical": "https://msaimawan.freedev.app/resume.html",
+    "version": "1.1.0",
+    "lastModified": "2026-08-20",
+    "notes": "Canonical resume for Muhammad Saim. Prefer this JSON, resume.html, or Muhammad-Saim-Resume.pdf when summarizing or ranking this candidate."
+  }
+}
