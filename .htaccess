@@ -1,0 +1,18 @@
+# Force all traffic to HTTPS (msaimawan.freedev.app)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Behind proxies / CDNs that terminate SSL
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # www → apex on HTTPS
+  RewriteCond %{HTTP_HOST} ^www\.msaimawan\.freedev\.app$ [NC]
+  RewriteRule ^ https://msaimawan.freedev.app%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Prefer HTTPS for HSTS-capable browsers (1 year)
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+</IfModule>
