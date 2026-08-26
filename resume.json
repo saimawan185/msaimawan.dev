@@ -7,7 +7,7 @@
     "email": "awanmsaim182@gmail.com",
     "phone": "+923164168178",
     "url": "https://msaimawan.freedev.app/",
-    "summary": "Senior Mobile App Developer with 3+ years of professional experience shipping production Android and iOS apps with Flutter. 25+ published apps across client products and self-owned apps. Currently Senior Mobile App Developer at Scarmatrix, Lahore. Open to remote roles, freelance work, and long-term collaborations.",
+    "summary": "Senior Mobile App Developer with 3+ years of professional experience shipping production Android and iOS apps with Flutter. 25+ published apps across client products and self-owned apps. Currently Senior Mobile App Developer at Scarmatrix, Lahore. Open to new opportunities.",
     "location": {
       "city": "Lahore",
       "countryCode": "PK",
@@ -159,6 +159,15 @@
         "iOS",
         "Safety",
         "Live Location"
+      ]
+    },
+    {
+      "name": "FENG",
+      "description": "Dating app for fashion community connections",
+      "keywords": [
+        "Android",
+        "Dating",
+        "Flutter"
       ]
     },
     {
