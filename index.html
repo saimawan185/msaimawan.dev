@@ -344,14 +344,16 @@
 
   /* ---------- HERO ---------- */
   header.hero{
+    min-height:100svh;
     min-height:100vh;
     display:flex;
     flex-direction:column;
-    justify-content:center;
-    padding-top:110px;
-    padding-bottom:0;
+    justify-content:flex-start;
+    padding-top:72px;
+    padding-bottom:24px;
     position:relative;
     overflow:hidden;
+    background:var(--bg);
   }
   header.hero::before{
     content:'';
@@ -369,9 +371,12 @@
   .hero-grid{
     display:grid;
     grid-template-columns:1.05fr 0.95fr;
-    gap:48px;
+    gap:40px;
     align-items:center;
     width:100%;
+    margin:0;
+    padding-top:8px;
+    flex:0 0 auto; /* do NOT stretch — stretching + align-items:center caused the desktop gap */
   }
   .brand-name{
     font-family:'Fraunces',serif;
@@ -424,8 +429,8 @@
   .btn-ghost:hover{border-color:var(--teal); color:var(--teal); transform:translateY(-2px);}
 
   .stat-strip{
-    margin-top:72px;
-    padding:28px 0 40px;
+    margin-top:auto;
+    padding:28px 0 20px;
     border-top:1px solid var(--line);
     width:100%;
   }
@@ -854,7 +859,8 @@
 
   /* ---------- RESPONSIVE ---------- */
   @media (max-width:980px){
-    .hero-grid{grid-template-columns:1fr; gap:70px;}
+    header.hero{padding-top:70px; padding-bottom:28px;}
+    .hero-grid{grid-template-columns:1fr; gap:36px; padding-top:12px;}
     .hero-photo{order:-1;}
     .about-grid{grid-template-columns:1fr; gap:40px;}
     .sig-grid{grid-template-columns:1fr; gap:40px;}
